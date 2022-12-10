@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d687bae8-60df-409b-930d-f513ecae60f4"
+      }
+    },
+    "owner": "hvacek22"
   }
 }
