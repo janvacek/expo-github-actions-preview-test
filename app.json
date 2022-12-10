@@ -12,19 +12,22 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/d687bae8-60df-409b-930d-f513ecae60f4"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hvacek22.expogithubactionspreviewtest"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.hvacek22.expogithubactionspreviewtest"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,6 +37,9 @@
         "projectId": "d687bae8-60df-409b-930d-f513ecae60f4"
       }
     },
-    "owner": "hvacek22"
+    "owner": "hvacek22",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
