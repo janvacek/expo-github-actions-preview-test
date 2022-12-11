@@ -25,4 +25,4 @@ jobs:
         run: npm ci
 
       - name: Publish update
-        run: eas update --branch=pr-${{ github.event.number }}
+        run: eas update --auto
