@@ -27,4 +27,9 @@ jobs:
         run: npm ci
 
       - name: Publish update
-        run: eas update --branch pr-${{ github.event.number }} --message "${{ github.event.head_commit.message }}"
+        run: eas update --branch pr-${{ github.event.number }} --message "${{ github.event.head_commit.message }} "
+
+      - name: 💬 Comment preview
+        uses: expo/expo-github-action/preview-comment@v7
+        with:
+          channel: pr-${{ github.event.number }}
