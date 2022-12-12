@@ -27,4 +27,4 @@ jobs:
         run: npm ci
 
       - name: Delete Expo branch
-        run: eas branch:delete pr-${{ github.event.number }}
+        run: eas branch:delete pr-${{ github.event.number }} --non-interactive
