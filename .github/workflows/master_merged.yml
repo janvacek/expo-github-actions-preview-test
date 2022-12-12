@@ -1,11 +1,14 @@
-name: Delete Expo branch
+name: Update Staging branch
 on:
   pull_request:
-    types: [ closed ]
+    branches:
+      - main
+    types: [closed]
 
 jobs:
-  update:
-    name: EAS Update
+  update-staging-branch:
+    if: github.event.pull_request.merged
+    name: Update Staging branch
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -26,5 +29,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Delete Expo branch
-        run: eas branch:delete pr-${{ github.event.number }} --non-interactive
+      - name: Point Staging channel to recently merged branch updates
+        run: eas channel:edit --branch=pr-${{ github.event.number }} --non-interactive
