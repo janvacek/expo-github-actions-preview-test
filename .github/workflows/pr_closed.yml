@@ -1,7 +1,7 @@
-name: Update expo branch
+name: Delete Expo branch
 on:
   pull_request:
-    types: [ opened, synchronize, reopened ]
+    types: [ closed ]
 
 jobs:
   update:
@@ -26,5 +26,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Publish update
-        run: eas update --branch pr-${{ github.event.number }} --message "${{ github.event.head_commit.message }}"
+      - name: Delete Expo branch
+        run: eas branch:delete pr-${{ github.event.number }}
