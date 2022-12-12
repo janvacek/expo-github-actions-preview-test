@@ -1,30 +1,30 @@
-name: Delete Expo branch
-on:
-  pull_request:
-    types: [ closed ]
-
-jobs:
-  update:
-    name: EAS Update
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-
-      - name: Setup Expo
-        uses: expo/expo-github-action@v7
-        with:
-          expo-version: latest
-          eas-version: latest
-          token: UTStM-7YeZT5voiZ4jiazjepa7IOCkKDHaajM5rt
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Delete Expo branch
-        run: eas branch:delete pr-${{ github.event.number }}
+#name: Delete Expo branch
+#on:
+#  pull_request:
+#    types: [ closed ]
+#
+#jobs:
+#  update:
+#    name: EAS Update
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v2
+#
+#      - name: Setup Node
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: 16.x
+#
+#      - name: Setup Expo
+#        uses: expo/expo-github-action@v7
+#        with:
+#          expo-version: latest
+#          eas-version: latest
+#          token: UTStM-7YeZT5voiZ4jiazjepa7IOCkKDHaajM5rt
+#
+#      - name: Install dependencies
+#        run: npm ci
+#
+#      - name: Delete Expo branch
+#        run: eas branch:delete pr-${{ github.event.number }}
