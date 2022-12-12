@@ -27,7 +27,8 @@ jobs:
         run: npm ci
 
       - name: Publish update
-        run: eas update --branch pr-${{ github.event.number }} --message '${{ github.sha }} - "${{ github.event.head_commit.message }}"' --non-interactive
+        run: eas update --branch pr-${{ github.event.number }} --message "#${{ github.event.number }} - ${{ github.event.head_commit.message }}" --non-interactive
 
       - name: Delete newly created channel
+        if: github.event.action == 'opened' || github.event.action == 'reopened'
         run: eas channel:delete pr-${{ github.event.number }} --non-interactive

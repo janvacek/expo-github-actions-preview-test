@@ -5,6 +5,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app! TEST-1 TEST </Text>
+      <Text>Open up App.tsx to start working on your app! TEST-1 TEST </Text>
+      <Text>Open up App.tsx to start working on your app! TEST-1 TEST </Text>
+      <Text>Open up App.tsx to start working on your app! TEST-1 TEST </Text>
       <StatusBar style="auto" />
     </View>
   );
