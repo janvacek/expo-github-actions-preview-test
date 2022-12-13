@@ -36,6 +36,8 @@ jobs:
           repo-token: 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
           content: exp+expo-github-actions-preview-test://expo-development-client/?url=https://u.expo.dev/d687bae8-60df-409b-930d-f513ecae60f4?channel-name=pr-${{github.event.number}}
           comment: |
-            :lock: This is a QR code for access to the preview website.
-            :iphone: Scan a code with your device.
+            ```
+            K dispozici na Expo větvi `pr-${{github.event.number}}`<br>
+            Nebo na QR kódu: <br>
             {qrcode}
+            ```
