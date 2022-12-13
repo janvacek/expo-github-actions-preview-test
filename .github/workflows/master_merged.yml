@@ -44,4 +44,5 @@ jobs:
         run: eas branch:rename --from pr-${{ github.event.number }} --to staging --non-interactive
 
       - name: Delete branch channel
+        continue-on-error: true
         run: eas channel:delete pr-${{ github.event.number }} --non-interactive
