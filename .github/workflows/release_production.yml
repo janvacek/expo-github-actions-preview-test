@@ -26,8 +26,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Set changes from Staging to Production
-        run: eas update --branch production --message "#${{ github.event.number }}" --non-interactive
+      - name: Remove production-old branch
+        continue-on-error: true
+        run: eas branch:delete production-old --non-interactive
 
-#      - name: Point Production channel same branch as Staging channel
-#        run: eas channel:edit production --branch pr-${{ github.event.number }} --non-interactive
+      - name: Set changes from Staging to production-new branch
+        run: eas update --branch production-new --message "#${{ github.event.number }}" --non-interactive
+
+      - name: Point Production channel to production-new branch
+        run: eas channel:edit production --branch production-new --non-interactive
+
+      - name: Rename Production branch to production-old
+        run: eas branch:rename --from production --to production-old --non-interactive
+
+      - name: Rename Production-new branch to production
+        run: eas branch:rename --from production-new --to production --non-interactive
