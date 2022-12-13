@@ -30,13 +30,13 @@ jobs:
         continue-on-error: true
         run: eas branch:delete production-old --non-interactive
 
-      - name: Set changes from Staging to production-new branch
-        run: eas update --branch production-new --message "#${{ github.event.number }}" --non-interactive
+      - name: Set changes from staging to production-new branch
+        run: eas update --branch production-new --message "Release ${{ github.event.release.tag_name }}" --non-interactive
 
       - name: Delete newly created production-new channel
         run: eas channel:delete production-new --non-interactive
 
-      - name: Point Production channel to production-new branch
+      - name: Point production channel to production-new branch
         run: eas channel:edit production --branch production-new --non-interactive
 
       - name: Rename Production branch to production-old
