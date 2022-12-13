@@ -5,6 +5,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>THIS IS A STAGING!</Text>
+      <Text>THIS IS A STAGING!</Text>
+      <Text>THIS IS A STAGING!</Text>
       <Text>THIS IS A STAGING! TEST 1</Text>
       <StatusBar style="auto" />
     </View>
@@ -14,7 +16,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f00',
+    backgroundColor: '#0f0',
     alignItems: 'center',
     justifyContent: 'center',
   },
