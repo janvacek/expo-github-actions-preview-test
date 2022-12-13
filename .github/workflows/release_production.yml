@@ -33,6 +33,9 @@ jobs:
       - name: Set changes from Staging to production-new branch
         run: eas update --branch production-new --message "#${{ github.event.number }}" --non-interactive
 
+      - name: Delete newly created production-new channel
+        run: eas channel:delete production-new --non-interactive
+
       - name: Point Production channel to production-new branch
         run: eas channel:edit production --branch production-new --non-interactive
 

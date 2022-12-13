@@ -42,3 +42,6 @@ jobs:
 
       - name: Rename newly merged branch to staging
         run: eas branch:rename --from pr-${{ github.event.number }} --to staging --non-interactive
+
+      - name: Delete branch channel
+        run: eas channel:delete pr-${{ github.event.number }} --non-interactive
