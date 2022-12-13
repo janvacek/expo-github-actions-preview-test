@@ -30,5 +30,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Point Staging channel to recently merged branch updates
-        run: eas channel:edit --branch=pr-${{ github.event.number }} --non-interactive
+      - name: Remove staging-old branch
+        continue-on-error: true
+        run: eas branch:delete staging-old --non-interactive
+
+      - name: Point Staging channel to recently merged branch
+        run: eas channel:edit staging --branch pr-${{ github.event.number }} --non-interactive
+
+      - name: Rename staging branch to staging-old
+        run: eas branch:rename --from staging --to staging-old --non-interactive
+
+      - name: Rename newly merged branch to staging
+        run: eas branch:rename --from pr-${{ github.event.number }} --to staging --non-interactive
